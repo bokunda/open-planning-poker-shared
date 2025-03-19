@@ -4,6 +4,8 @@ on: push
 jobs:
   publish-open-planning-poker-nuget:
     runs-on: ubuntu-latest
+    env:
+      NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
