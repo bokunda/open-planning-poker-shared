@@ -15,6 +15,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/bokunda/open-planning-poker-shared</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Open Planning Poker Shared Logic</Title>
   </PropertyGroup>
 
 
