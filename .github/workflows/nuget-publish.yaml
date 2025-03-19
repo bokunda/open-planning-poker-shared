@@ -8,8 +8,6 @@ on:
 jobs:
   publish-open-planning-poker-nuget:
     runs-on: ubuntu-latest
-    env:
-      NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,7 +21,6 @@ jobs:
         run: |
           dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.NUGET_API_KEY }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
-
       - name: Restore dependencies
         run: dotnet restore
 
@@ -35,3 +32,6 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: dotnet nuget push "*.nupkg" --source "github" --api-key ${{ secrets.NUGET_API_KEY  }} --skip-duplicate
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push "*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --skip-duplicate

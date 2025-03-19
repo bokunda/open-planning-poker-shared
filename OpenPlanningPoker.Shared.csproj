@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>OpenPlanningPoker.Shared</PackageId>
-    <Version>1.0.0-preview2</Version>
+    <Version>1.0.0-preview3</Version>
     <Authors>Bojan Piskulic</Authors>
     <Company>Bitcrafta</Company>
     <Description>Shared logic used for Open Planning Poker project.</Description>
@@ -17,6 +17,8 @@
     <IncludeSymbols>true</IncludeSymbols>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Open Planning Poker Shared Logic</Title>
+    <PackageProjectUrl>https://openplanningpoker.com/</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
 
@@ -42,6 +44,14 @@
     <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
     <PackageReference Include="OpenTelemetry.Instrumentation.Process" />
     <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
