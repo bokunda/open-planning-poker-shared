@@ -3,7 +3,7 @@ run-name: "Publishing Open Planning Poker NuGet Package"
 on: 
   push:
     branches:
-      - main
+      - initial-version
   workflow_dispatch:
 jobs:
   publish-open-planning-poker-nuget:
