@@ -10,7 +10,7 @@ public class HttpCurrentUserProvider(
             ? Guid.Parse(userId)
             : Guid.Empty;
 
-    public async Task<BaseUserProfile> GetAsync(CancellationToken cancellationToken)
+    public async Task<Result<BaseUserProfile, ApplicationError>> GetAsync(CancellationToken cancellationToken)
     {
         var user = await cache.GetOrCreateAsync(
             GetCacheKey(Id),
@@ -19,7 +19,9 @@ public class HttpCurrentUserProvider(
 
         if (user?.Id == Guid.Empty || string.IsNullOrEmpty(user?.UserName))
         {
-            throw new UnauthorizedAccessException("User not found.");
+            return new ApplicationError(
+                ApplicationErrorContants.UserNotFound.Key, 
+                ApplicationErrorContants.UserNotFound.Value);
         }
 
         return user;

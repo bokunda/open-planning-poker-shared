@@ -3,5 +3,5 @@
 public interface ICurrentUserProvider
 {
     Guid Id { get; }
-    Task<BaseUserProfile> GetAsync(CancellationToken cancellationToken);
+    Task<Result<BaseUserProfile, ApplicationError>> GetAsync(CancellationToken cancellationToken);
 }
